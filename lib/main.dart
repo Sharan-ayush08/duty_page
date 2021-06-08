@@ -110,34 +110,28 @@ class _MyAppState extends State<MyApp> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Expanded(
-                        child: Icon(Icons.merge_type_outlined),
-                      ),
+                      child: Icon(Icons.merge_type_outlined),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: Expanded(
-                        child: Text(
-                          "Type",
-                          style: TextStyle(fontSize: 15.0),
-                        ),
+                      child: Text(
+                        "Type",
+                        style: TextStyle(fontSize: 15.0),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 195.0),
-                      child: Expanded(child: Text("Work")),
+                      child: Text("Work"),
                     ),
-                    Expanded(
-                      child: Container(
-                        child: Icon(Icons.search),
-                        height: 30.0,
-                        width: 30.0,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.grey[400],
-                        ),
-                      ),
-                    )
+                    // Container(
+                    //   child: Icon(Icons.search),
+                    //   height: 30.0,
+                    //   width: 30.0,
+                    //   decoration: BoxDecoration(
+                    //     shape: BoxShape.circle,
+                    //     color: Colors.grey[400],
+                    //   ),
+                    // )
                   ],
                 ),
               ),
@@ -200,15 +194,11 @@ class _MyAppState extends State<MyApp> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Expanded(
-                        child: Icon(Icons.timer),
-                      ),
+                      child: Icon(Icons.timer),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 16.0),
-                      child: Expanded(
-                        child: Text("Time"),
-                      ),
+                      child: Text("Time"),
                     ),
                   ],
                 ),

@@ -41,266 +41,303 @@ class _MyAppState extends State<MyApp> {
             )
           ],
         ),
-        body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              ListTile(
-                leading: Container(
-                  height: double.infinity,
-                  child: Icon(Icons.edit),
-                ),
-                title: TextFormField(
-                  decoration: InputDecoration(
-                      hintText: "Up to 20", border: InputBorder.none),
-                ),
-                trailing: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.grey, onPrimary: Colors.white),
-                  onPressed: () {},
-                  child: Text(
-                    "Color",
+        body: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  leading: Container(
+                    height: double.infinity,
+                    child: Icon(Icons.edit),
                   ),
-                ),
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      height: 40,
-                      width: 80,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      height: 40,
-                      width: 80,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      height: 40,
-                      width: 80,
-                      color: Colors.blue,
-                    ),
-                    Container(
-                      height: 40,
-                      width: 80,
-                      color: Colors.black,
-                    ),
-                    Container(
-                      height: 40,
-                      width: 80,
-                      color: Colors.lightGreen,
-                    ),
-                    Container(
-                      height: 40,
-                      width: 80,
-                      color: Colors.orange,
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                height: 30,
-                indent: 10,
-                thickness: 1,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 7.0),
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Expanded(
-                        child: Icon(Icons.merge_type_outlined),
+                  title: TextFormField(
+                    decoration: InputDecoration(
+                        hintText: "Up to 20", border: InputBorder.none),
+                  ),
+                  trailing: Container(
+                    height: 40.0,
+                    width: 60.0,
+                    color: Colors.grey,
+                    child: Center(
+                      child: Text(
+                        "Color",
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 16.0),
-                      child: Expanded(
+                  ),
+                ),
+                // color_page(),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        height: 40,
+                        width: 80,
+                        color: Colors.green,
+                      ),
+                      Container(
+                        height: 40,
+                        width: 80,
+                        color: Colors.red,
+                      ),
+                      Container(
+                        height: 40,
+                        width: 80,
+                        color: Colors.blue,
+                      ),
+                      Container(
+                        height: 40,
+                        width: 80,
+                        color: Colors.black,
+                      ),
+                      Container(
+                        height: 40,
+                        width: 80,
+                        color: Colors.lightGreen,
+                      ),
+                      Container(
+                        height: 40,
+                        width: 80,
+                        color: Colors.orange,
+                      ),
+                    ],
+                  ),
+                ),
+                Divider(
+                  height: 30,
+                  indent: 10,
+                  thickness: 1,
+                ),
+                Center(child: Text("ABBREVIATION")),
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Card(
+                    elevation: 5,
+                    color: Colors.grey[300],
+                    child: Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: TextFormField(
+                        decoration: InputDecoration(),
+                      ),
+                    ),
+                  ),
+                ),
+                Divider(
+                  height: 30,
+                  indent: 10,
+                  thickness: 1,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 7.0),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Expanded(
+                          child: Icon(Icons.merge_type_outlined),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5.0),
                         child: Text(
                           "Type",
-                          style: TextStyle(fontSize: 15.0),
+                          style: TextStyle(fontSize: 17.0),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 195.0),
-                      child: Expanded(child: Text("Work")),
-                    ),
-                    Expanded(
-                      child: Container(
-                        child: Icon(Icons.search),
-                        height: 30.0,
-                        width: 30.0,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.grey[400],
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 15.0, left: 15.0),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        height: 45,
+                        width: 85,
+                        color: Colors.grey[300],
+                        child: Center(
+                          child: Text("work"),
                         ),
                       ),
-                    )
-                  ],
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Container(
+                        height: 45,
+                        width: 85,
+                        color: Colors.grey[300],
+                        child: Center(
+                          child: Text("off"),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Container(
+                        height: 45,
+                        width: 85,
+                        color: Colors.grey[300],
+                        child: Center(
+                          child: Text("vac"),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Container(
+                        height: 45,
+                        width: 85,
+                        color: Colors.grey[300],
+                        child: Center(
+                          child: Text("half"),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 15.0, left: 15.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      height: 45,
-                      width: 85,
-                      color: Colors.grey[300],
-                      child: Center(
-                        child: Text("work"),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Container(
-                      height: 45,
-                      width: 85,
-                      color: Colors.grey[300],
-                      child: Center(
-                        child: Text("off"),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Container(
-                      height: 45,
-                      width: 85,
-                      color: Colors.grey[300],
-                      child: Center(
-                        child: Text("vac"),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Container(
-                      height: 45,
-                      width: 85,
-                      color: Colors.grey[300],
-                      child: Center(
-                        child: Text("half"),
-                      ),
-                    ),
-                  ],
+                Divider(
+                  height: 30,
+                  indent: 10,
+                  thickness: 1,
                 ),
-              ),
-              Divider(
-                height: 30,
-                indent: 10,
-                thickness: 1,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 7.0),
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Expanded(
+                Padding(
+                  padding: const EdgeInsets.only(left: 7.0),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
                         child: Icon(Icons.timer),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Text(
+                          "Schedule",
+                          style: TextStyle(fontSize: 17.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 80.0),
+                      child: SizedBox(
+                        width: 75.0,
+                        child: Container(
+                          child: GestureDetector(
+                            child: Builder(builder: (context) {
+                              return TextFormField(
+                                controller: timeinput,
+                                decoration: InputDecoration(
+                                    labelText: "START",
+                                    hintText: "Time",
+                                    border: InputBorder.none),
+                                readOnly: true,
+                                onTap: () async {
+                                  TimeOfDay? pickedTime = await showTimePicker(
+                                    context: context,
+                                    initialTime: TimeOfDay.now(),
+                                  );
+                                  if (pickedTime != null) {
+                                    print(pickedTime.format(context));
+                                    DateTime parsedTime = DateFormat.jm().parse(
+                                        pickedTime.format(context).toString());
+                                    print(parsedTime);
+                                    String formattedTime =
+                                        DateFormat('hh:mm').format(parsedTime);
+                                    print(formattedTime);
+                                    setState(() {
+                                      timeinput.text = formattedTime;
+                                    });
+                                  } else {
+                                    print("Time is not selected");
+                                  }
+                                },
+                              );
+                            }),
+                          ),
+                        ),
+                      ),
+                    ),
+                    VerticalDivider(
+                      width: 10.0,
+                      color: Colors.grey,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 16.0),
-                      child: Expanded(
-                        child: Text("Time"),
+                      padding: const EdgeInsets.only(left: 80.0),
+                      child: SizedBox(
+                        width: 75.0,
+                        child: Container(
+                          child: GestureDetector(
+                            child: Builder(builder: (context) {
+                              return TextFormField(
+                                controller: timeinput2,
+                                decoration: InputDecoration(
+                                    labelText: "END",
+                                    hintText: "Time",
+                                    border: InputBorder.none),
+                                readOnly: true,
+                                onTap: () async {
+                                  TimeOfDay? pickedTime = await showTimePicker(
+                                    context: context,
+                                    initialTime: TimeOfDay.now(),
+                                  );
+                                  if (pickedTime != null) {
+                                    print(pickedTime.format(context));
+                                    DateTime parsedTime = DateFormat.jm().parse(
+                                        pickedTime.format(context).toString());
+                                    print(parsedTime);
+                                    String formattedTime =
+                                        DateFormat('hh:mm').format(parsedTime);
+                                    print(formattedTime);
+                                    setState(() {
+                                      timeinput2.text = formattedTime;
+                                    });
+                                  } else {
+                                    print("Time is not selected");
+                                  }
+                                },
+                              );
+                            }),
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 80.0),
-                    child: SizedBox(
-                      width: 75.0,
-                      child: Container(
-                        child: GestureDetector(
-                          child: Builder(builder: (context) {
-                            return TextFormField(
-                              controller: timeinput,
-                              decoration: InputDecoration(
-                                  hintText: "Time", border: InputBorder.none),
-                              readOnly: true,
-                              onTap: () async {
-                                TimeOfDay? pickedTime = await showTimePicker(
-                                  context: context,
-                                  initialTime: TimeOfDay.now(),
-                                );
-                                if (pickedTime != null) {
-                                  print(pickedTime.format(context));
-                                  DateTime parsedTime = DateFormat.jm().parse(
-                                      pickedTime.format(context).toString());
-                                  print(parsedTime);
-                                  String formattedTime =
-                                      DateFormat('hh:mm').format(parsedTime);
-                                  print(formattedTime);
-                                  setState(() {
-                                    timeinput.text = formattedTime;
-                                  });
-                                } else {
-                                  print("Time is not selected");
-                                }
-                              },
-                            );
-                          }),
-                        ),
-                      ),
-                    ),
-                  ),
-                  VerticalDivider(
-                    width: 10.0,
-                    color: Colors.grey,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 80.0),
-                    child: SizedBox(
-                      width: 75.0,
-                      child: Container(
-                        child: GestureDetector(
-                          child: Builder(builder: (context) {
-                            return TextFormField(
-                              controller: timeinput2,
-                              decoration: InputDecoration(
-                                  hintText: "Time", border: InputBorder.none),
-                              readOnly: true,
-                              onTap: () async {
-                                TimeOfDay? pickedTime = await showTimePicker(
-                                  context: context,
-                                  initialTime: TimeOfDay.now(),
-                                );
-                                if (pickedTime != null) {
-                                  print(pickedTime.format(context));
-                                  DateTime parsedTime = DateFormat.jm().parse(
-                                      pickedTime.format(context).toString());
-                                  print(parsedTime);
-                                  String formattedTime =
-                                      DateFormat('hh:mm').format(parsedTime);
-                                  print(formattedTime);
-                                  setState(() {
-                                    timeinput2.text = formattedTime;
-                                  });
-                                } else {
-                                  print("Time is not selected");
-                                }
-                              },
-                            );
-                          }),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
+
+// ignore: camel_case_types
+// class color_page extends StatelessWidget {
+//   final List colors = [
+//     {'color1': Colors.red, 'color2': Colors.blue},
+//   ];
+
+//   static set color(MaterialColor color) {}
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: ListView.builder(
+//         scrollDirection: Axis.horizontal,
+//         itemCount: colors.length,
+//         itemBuilder: (context, index) {
+//           return Container(
+//             child: Column(
+//               children: <Widget>[],
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }

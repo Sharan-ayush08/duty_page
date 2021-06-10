@@ -1,3 +1,4 @@
+import 'package:duty_page/colors.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -17,6 +18,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   TextEditingController timeinput = TextEditingController();
   TextEditingController timeinput2 = TextEditingController();
+
+  final List<Color> colors = <Color>[Colors.red, Colors.blue, Colors.amber];
 
   // get DateFormat => null;
 
@@ -66,44 +69,54 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                 ),
-                // color_page(),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        height: 40,
-                        width: 80,
-                        color: Colors.green,
-                      ),
-                      Container(
-                        height: 40,
-                        width: 80,
-                        color: Colors.red,
-                      ),
-                      Container(
-                        height: 40,
-                        width: 80,
-                        color: Colors.blue,
-                      ),
-                      Container(
-                        height: 40,
-                        width: 80,
-                        color: Colors.black,
-                      ),
-                      Container(
-                        height: 40,
-                        width: 80,
-                        color: Colors.lightGreen,
-                      ),
-                      Container(
-                        height: 40,
-                        width: 80,
-                        color: Colors.orange,
-                      ),
-                    ],
-                  ),
-                ),
+                SubscriptionFilter(),
+                // ListView.builder(
+                //   itemCount: colors.length,
+                //   itemBuilder: (context, int index) {
+                //     return Container(
+                //       width: 50.0,
+                //       height: 40.0,
+                //       color: colors[index],
+                //     );
+                //   },
+                // ),
+
+                //   scrollDirection: Axis.horizontal,
+                //   child: Row(
+                //     children: <Widget>[
+                //       Container(
+                //         height: 40,
+                //         width: 80,
+                //         color: Colors.green,
+                //       ),
+                //       Container(
+                //         height: 40,
+                //         width: 80,
+                //         color: Colors.red,
+                //       ),
+                //       Container(
+                //         height: 40,
+                //         width: 80,
+                //         color: Colors.blue,
+                //       ),
+                //       Container(
+                //         height: 40,
+                //         width: 80,
+                //         color: Colors.black,
+                //       ),
+                //       Container(
+                //         height: 40,
+                //         width: 80,
+                //         color: Colors.lightGreen,
+                //       ),
+                //       Container(
+                //         height: 40,
+                //         width: 80,
+                //         color: Colors.orange,
+                //       ),
+                //     ],
+                //   ),
+                // ),
                 Divider(
                   height: 30,
                   indent: 10,
@@ -315,29 +328,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-// ignore: camel_case_types
-// class color_page extends StatelessWidget {
-//   final List colors = [
-//     {'color1': Colors.red, 'color2': Colors.blue},
-//   ];
-
-//   static set color(MaterialColor color) {}
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: ListView.builder(
-//         scrollDirection: Axis.horizontal,
-//         itemCount: colors.length,
-//         itemBuilder: (context, index) {
-//           return Container(
-//             child: Column(
-//               children: <Widget>[],
-//             ),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }

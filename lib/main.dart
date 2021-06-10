@@ -70,53 +70,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
                 SubscriptionFilter(),
-                // ListView.builder(
-                //   itemCount: colors.length,
-                //   itemBuilder: (context, int index) {
-                //     return Container(
-                //       width: 50.0,
-                //       height: 40.0,
-                //       color: colors[index],
-                //     );
-                //   },
-                // ),
-
-                //   scrollDirection: Axis.horizontal,
-                //   child: Row(
-                //     children: <Widget>[
-                //       Container(
-                //         height: 40,
-                //         width: 80,
-                //         color: Colors.green,
-                //       ),
-                //       Container(
-                //         height: 40,
-                //         width: 80,
-                //         color: Colors.red,
-                //       ),
-                //       Container(
-                //         height: 40,
-                //         width: 80,
-                //         color: Colors.blue,
-                //       ),
-                //       Container(
-                //         height: 40,
-                //         width: 80,
-                //         color: Colors.black,
-                //       ),
-                //       Container(
-                //         height: 40,
-                //         width: 80,
-                //         color: Colors.lightGreen,
-                //       ),
-                //       Container(
-                //         height: 40,
-                //         width: 80,
-                //         color: Colors.orange,
-                //       ),
-                //     ],
-                //   ),
-                // ),
                 Divider(
                   height: 30,
                   indent: 10,

@@ -1,5 +1,4 @@
-import 'package:duty_page/colors.dart';
-import 'package:flutter/gestures.dart';
+//import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
@@ -16,10 +15,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  TextEditingController abb = TextEditingController();
   TextEditingController timeinput = TextEditingController();
   TextEditingController timeinput2 = TextEditingController();
+  int currentColor = 0;
 
-  final List<Color> colors = <Color>[Colors.red, Colors.blue, Colors.amber];
+  final List<Color> colors = <Color>[
+    Color(0xFFEF9A9A),
+    Colors.blue,
+    Colors.green,
+    Colors.yellow,
+    Colors.orange,
+    Colors.pink,
+    Colors.red,
+    Colors.brown,
+  ];
 
   // get DateFormat => null;
 
@@ -28,6 +38,12 @@ class _MyAppState extends State<MyApp> {
     timeinput.text = "";
     timeinput2.text = "";
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    abb.dispose();
+    super.dispose();
   }
 
   @override
@@ -55,38 +71,70 @@ class _MyAppState extends State<MyApp> {
                   ),
                   title: TextFormField(
                     decoration: InputDecoration(
-                        hintText: "Up to 20", border: InputBorder.none),
+                        labelText: "Duty Name", border: InputBorder.none),
                   ),
                   trailing: Container(
                     height: 40.0,
                     width: 60.0,
-                    color: Colors.grey,
+                    color: colors[currentColor],
                     child: Center(
                       child: Text(
-                        "Color",
+                        // ignore: unnecessary_null_comparison
+                        (abb.text.toString() == null ||
+                                abb.text.toString().length == 0)
+                            ? 'Color'
+                            : abb.text.toString(),
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
                 ),
-                SubscriptionFilter(),
+                Container(
+                  height: 30,
+                  width: 500,
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            currentColor = index;
+                          });
+                        },
+                        child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: currentColor == index
+                                      ? Colors.black54
+                                      : Colors.white,
+                                  width: 3),
+                              color: colors[index],
+                            ),
+                            height: 15,
+                            width: 100),
+                      );
+                    },
+                    scrollDirection: Axis.horizontal,
+                    itemCount: colors.length,
+                  ),
+                ),
                 Divider(
                   height: 30,
                   indent: 10,
                   thickness: 1,
                 ),
                 Center(child: Text("ABBREVIATION")),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: Card(
-                    elevation: 5,
-                    color: Colors.grey[300],
-                    child: Padding(
-                      padding: const EdgeInsets.all(6.0),
-                      child: TextFormField(
-                        decoration: InputDecoration(),
-                      ),
-                    ),
+                ListTile(
+                  leading: Container(
+                    height: double.infinity,
+                    child: Icon(Icons.switch_camera),
+                  ),
+                  title: TextFormField(
+                    controller: abb,
+                    onChanged: (value) {
+                      setState(() {});
+                    },
+                    decoration: InputDecoration(
+                        hintText: "ABBREVIATION", border: InputBorder.none),
                   ),
                 ),
                 Divider(

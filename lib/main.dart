@@ -76,23 +76,29 @@ class _MyAppState extends State<MyApp> {
                   trailing: Container(
                     height: 40.0,
                     width: 60.0,
-                    color: colors[currentColor],
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: colors[currentColor],
+                    ),
                     child: Center(
                       child: Text(
                         // ignore: unnecessary_null_comparison
                         (abb.text.toString() == null ||
                                 abb.text.toString().length == 0)
-                            ? 'Color'
+                            ? 'DUTY'
                             : abb.text.toString(),
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
                 ),
+
                 Container(
-                  height: 30,
-                  width: 500,
+                  height: 40,
+                  width: double.infinity,
                   child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: colors.length,
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
@@ -101,20 +107,24 @@ class _MyAppState extends State<MyApp> {
                           });
                         },
                         child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  color: currentColor == index
-                                      ? Colors.black54
-                                      : Colors.white,
-                                  width: 3),
-                              color: colors[index],
-                            ),
-                            height: 15,
-                            width: 100),
+                          margin: currentColor == index
+                              ? EdgeInsets.fromLTRB(3, 0, 3, 0)
+                              : EdgeInsets.fromLTRB(6, 5, 6, 5),
+
+                          // height: 40,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            border: Border.all(
+                                color: currentColor == index
+                                    ? colors[index]
+                                    : Colors.transparent,
+                                width: 4),
+                            color: colors[index],
+                          ),
+                        ),
                       );
                     },
-                    scrollDirection: Axis.horizontal,
-                    itemCount: colors.length,
                   ),
                 ),
                 Divider(
@@ -122,7 +132,7 @@ class _MyAppState extends State<MyApp> {
                   indent: 10,
                   thickness: 1,
                 ),
-                Center(child: Text("ABBREVIATION")),
+                // Center(child: Text("ABBREVIATION")),
                 ListTile(
                   leading: Container(
                     height: double.infinity,
@@ -134,7 +144,7 @@ class _MyAppState extends State<MyApp> {
                       setState(() {});
                     },
                     decoration: InputDecoration(
-                        hintText: "ABBREVIATION", border: InputBorder.none),
+                        labelText: "ABBREVIATION", border: InputBorder.none),
                   ),
                 ),
                 Divider(
@@ -148,9 +158,7 @@ class _MyAppState extends State<MyApp> {
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: Expanded(
-                          child: Icon(Icons.merge_type_outlined),
-                        ),
+                        child: Icon(Icons.merge_type_outlined),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 5.0),

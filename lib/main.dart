@@ -1,6 +1,6 @@
 //import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+// import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
 
 void main() {
@@ -140,7 +140,7 @@ class _MyAppState extends State<MyApp> {
                 ListTile(
                   leading: Container(
                     height: double.infinity,
-                    child: Icon(Icons.switch_camera),
+                    child: Icon(Icons.edit),
                   ),
                   title: TextFormField(
                     controller: abb,
@@ -265,89 +265,85 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
                 Row(
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 75.0),
-                      child: SizedBox(
-                        width: 75.0,
-                        child: Container(
-                          child: GestureDetector(
-                            child: Builder(builder: (context) {
-                              return TextFormField(
-                                controller: timeinput,
-                                decoration: InputDecoration(
-                                    labelText: "START",
-                                    hintText: "Time",
-                                    border: InputBorder.none),
-                                readOnly: true,
-                                onTap: () async {
-                                  TimeOfDay? pickedTime = await showTimePicker(
-                                    context: context,
-                                    initialTime: TimeOfDay.now(),
-                                  );
-                                  if (pickedTime != null) {
-                                    print(pickedTime.format(context));
-                                    DateTime parsedTime = DateFormat.jm().parse(
-                                        pickedTime.format(context).toString());
-                                    print(parsedTime);
-                                    String formattedTime =
-                                        DateFormat('hh:mm').format(parsedTime);
-                                    print(formattedTime);
-                                    setState(() {
-                                      timeinput.text = formattedTime;
-                                    });
-                                  } else {
-                                    print("Time is not selected");
-                                  }
-                                },
+                    Container(
+                      width: 90,
+                      child: GestureDetector(
+                        child: Builder(builder: (context) {
+                          return TextFormField(
+                            controller: timeinput,
+                            // initialValue:  ,
+
+                            decoration: InputDecoration(
+                                labelText: "START TIME",
+
+                                // hintText: "Time",
+                                border: InputBorder.none),
+                            readOnly: true,
+                            onTap: () async {
+                              TimeOfDay? pickedTime = await showTimePicker(
+                                context: context,
+                                initialTime: TimeOfDay.now(),
                               );
-                            }),
-                          ),
-                        ),
+                              if (pickedTime != null) {
+                                print(pickedTime.format(context));
+                                DateTime parsedTime = DateFormat.jm().parse(
+                                    pickedTime.format(context).toString());
+                                print(parsedTime);
+                                String formattedTime =
+                                    DateFormat('hh:mm aa').format(parsedTime);
+                                print(formattedTime);
+                                setState(() {
+                                  timeinput.text = formattedTime;
+                                });
+                              } else {
+                                print("Time is not selected");
+                              }
+                            },
+                          );
+                        }),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
-                      child: Text("___"),
+                    Text(
+                      ">",
+                      style: TextStyle(fontSize: 30),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 70.0),
-                      child: SizedBox(
-                        width: 75.0,
-                        child: Container(
-                          child: GestureDetector(
-                            child: Builder(builder: (context) {
-                              return TextFormField(
-                                controller: timeinput2,
-                                decoration: InputDecoration(
-                                    labelText: "END",
-                                    hintText: "Time",
-                                    border: InputBorder.none),
-                                readOnly: true,
-                                onTap: () async {
-                                  TimeOfDay? pickedTime = await showTimePicker(
-                                    context: context,
-                                    initialTime: TimeOfDay.now(),
-                                  );
-                                  if (pickedTime != null) {
-                                    print(pickedTime.format(context));
-                                    DateTime parsedTime = DateFormat.jm().parse(
-                                        pickedTime.format(context).toString());
-                                    print(parsedTime);
-                                    String formattedTime =
-                                        DateFormat('hh:mm').format(parsedTime);
-                                    print(formattedTime);
-                                    setState(() {
-                                      timeinput2.text = formattedTime;
-                                    });
-                                  } else {
-                                    print("Time is not selected");
-                                  }
-                                },
+                    Container(
+                      width: 80,
+                      child: GestureDetector(
+                        child: Builder(builder: (context) {
+                          return TextFormField(
+                            // initialValue: ,
+                            controller: timeinput2,
+                            decoration: InputDecoration(
+                                labelText: "END TIME",
+                                // hintText: "Time",
+                                border: InputBorder.none),
+                            readOnly: true,
+                            onTap: () async {
+                              TimeOfDay? pickedTime = await showTimePicker(
+                                context: context,
+                                initialTime: TimeOfDay.now(),
                               );
-                            }),
-                          ),
-                        ),
+                              if (pickedTime != null) {
+                                print(pickedTime.format(context));
+                                DateTime parsedTime = DateFormat.jm().parse(
+                                    pickedTime.format(context).toString());
+                                print(parsedTime);
+                                String formattedTime =
+                                    DateFormat('hh:mm aa').format(parsedTime);
+                                print(formattedTime);
+                                setState(() {
+                                  timeinput2.text = formattedTime;
+                                });
+                              } else {
+                                print("Time is not selected");
+                              }
+                            },
+                          );
+                        }),
                       ),
                     ),
                   ],

@@ -19,6 +19,10 @@ class _MyAppState extends State<MyApp> {
   TextEditingController timeinput = TextEditingController();
   TextEditingController timeinput2 = TextEditingController();
   int currentColor = 0;
+  bool _hasBeenPressed = true;
+  bool _hasBeenPressed1 = false;
+  bool _hasBeenPressed2 = false;
+  bool _hasBeenPressed3 = false;
 
   final List<Color> colors = <Color>[
     Color(0xFFEF9A9A),
@@ -173,47 +177,66 @@ class _MyAppState extends State<MyApp> {
                 Padding(
                   padding: const EdgeInsets.only(right: 15.0, left: 15.0),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Container(
-                        height: 45,
-                        width: 85,
-                        color: Colors.grey[300],
-                        child: Center(
-                          child: Text("work"),
-                        ),
+                      // ignore: deprecated_member_use
+                      RaisedButton(
+                        textColor: Colors.black,
+                        child: Text("work"),
+                        color: _hasBeenPressed ? Colors.blue : Colors.white,
+                        onPressed: () {
+                          setState(() {
+                            _hasBeenPressed = !_hasBeenPressed;
+                            _hasBeenPressed1 = false;
+                            _hasBeenPressed2 = false;
+                            _hasBeenPressed3 = false;
+                          });
+                        },
                       ),
-                      SizedBox(
-                        width: 5,
+
+                      // ignore: deprecated_member_use
+                      RaisedButton(
+                        textColor: Colors.black,
+                        child: Text("off"),
+                        color: _hasBeenPressed1 ? Colors.blue : Colors.white,
+                        onPressed: () {
+                          setState(() {
+                            _hasBeenPressed1 = !_hasBeenPressed1;
+                            _hasBeenPressed = false;
+                            _hasBeenPressed2 = false;
+                            _hasBeenPressed3 = false;
+                          });
+                        },
                       ),
-                      Container(
-                        height: 45,
-                        width: 85,
-                        color: Colors.grey[300],
-                        child: Center(
-                          child: Text("off"),
-                        ),
+
+                      // ignore: deprecated_member_use
+                      RaisedButton(
+                        textColor: Colors.black,
+                        child: Text("vac"),
+                        color: _hasBeenPressed2 ? Colors.blue : Colors.white,
+                        onPressed: () {
+                          setState(() {
+                            _hasBeenPressed2 = !_hasBeenPressed2;
+                            _hasBeenPressed = false;
+                            _hasBeenPressed1 = false;
+                            _hasBeenPressed3 = false;
+                          });
+                        },
                       ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Container(
-                        height: 45,
-                        width: 85,
-                        color: Colors.grey[300],
-                        child: Center(
-                          child: Text("vac"),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Container(
-                        height: 45,
-                        width: 85,
-                        color: Colors.grey[300],
-                        child: Center(
-                          child: Text("half"),
-                        ),
+
+                      //ignore: deprecated_member_use
+                      RaisedButton(
+                        textColor: Colors.black,
+                        child: Text("half"),
+                        color: _hasBeenPressed3 ? Colors.blue : Colors.white,
+                        onPressed: () {
+                          setState(() {
+                            _hasBeenPressed3 = !_hasBeenPressed3;
+                            _hasBeenPressed = false;
+                            _hasBeenPressed1 = false;
+                            _hasBeenPressed2 = false;
+                          });
+                        },
                       ),
                     ],
                   ),
@@ -244,7 +267,7 @@ class _MyAppState extends State<MyApp> {
                 Row(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 80.0),
+                      padding: const EdgeInsets.only(left: 75.0),
                       child: SizedBox(
                         width: 75.0,
                         child: Container(
@@ -283,12 +306,12 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                     ),
-                    VerticalDivider(
-                      width: 10.0,
-                      color: Colors.grey,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 18.0),
+                      child: Text("___"),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 80.0),
+                      padding: const EdgeInsets.only(left: 70.0),
                       child: SizedBox(
                         width: 75.0,
                         child: Container(

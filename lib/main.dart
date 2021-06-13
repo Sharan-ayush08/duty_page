@@ -1,6 +1,5 @@
-//import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/rendering.dart';
+
 import 'package:intl/intl.dart';
 
 void main() {
@@ -23,12 +22,8 @@ class _EditDutyPageState extends State<EditDutyPage> {
   TextEditingController abb = TextEditingController();
   TextEditingController timeinput = TextEditingController();
   TextEditingController timeinput2 = TextEditingController();
-  int currentColor = 0;
-  int currentButton = 0;
-  bool _hasBeenPressed = true;
-  bool _hasBeenPressed1 = false;
-  bool _hasBeenPressed2 = false;
-  bool _hasBeenPressed3 = false;
+  int _selectedColor = 0;
+  int _selectedButton = 0;
 
   final List colors = [
     Color(0xFFEF9A9A),
@@ -43,9 +38,7 @@ class _EditDutyPageState extends State<EditDutyPage> {
     Colors.black
   ];
 
-  // ignore: deprecated_member_use
-  List<String> text = ["work", "off", "vacc", "half"];
-  // get DateFormat => null;
+  List<String> workType = ["work", "off", "vac", "half"];
 
   @override
   void initState() {
@@ -91,21 +84,16 @@ class _EditDutyPageState extends State<EditDutyPage> {
                   width: 60.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
-                    color: colors[currentColor],
+                    color: colors[_selectedColor],
                   ),
                   child: Center(
                     child: Text(
-                      // ignore: unnecessary_null_comparison
-                      (abb.text.toString() == null ||
-                              abb.text.toString().length == 0)
-                          ? 'DUTY'
-                          : abb.text.toString(),
+                      abb.text.isEmpty ? 'DUTY' : abb.text.toString(),
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
               ),
-
               Container(
                 height: 40,
                 width: double.infinity,
@@ -116,20 +104,18 @@ class _EditDutyPageState extends State<EditDutyPage> {
                     return GestureDetector(
                       onTap: () {
                         setState(() {
-                          currentColor = index;
+                          _selectedColor = index;
                         });
                       },
                       child: Container(
-                        margin: currentColor == index
+                        margin: _selectedColor == index
                             ? EdgeInsets.fromLTRB(3, 0, 3, 0)
                             : EdgeInsets.fromLTRB(6, 5, 6, 5),
-
-                        // height: 40,
                         width: 60,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
                           border: Border.all(
-                              color: currentColor == index
+                              color: _selectedColor == index
                                   ? colors[index]
                                   : Colors.transparent,
                               width: 4),
@@ -145,7 +131,6 @@ class _EditDutyPageState extends State<EditDutyPage> {
                 indent: 10,
                 thickness: 1,
               ),
-              // Center(child: Text("ABBREVIATION")),
               ListTile(
                 leading: Container(
                   height: double.infinity,
@@ -183,125 +168,31 @@ class _EditDutyPageState extends State<EditDutyPage> {
                   ],
                 ),
               ),
-
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //   children: <Widget>[
-              //     ListView.builder(
-              //       itemCount: text.length,
-              //       itemBuilder: (context, index) {
-              //         // ignore: deprecated_member_use
-              //         return GestureDetector(
-              //           onTap: () {
-              //             setState(() {
-              //               currentButton = index;
-              //             });
-              //           },
-              //           // ignore: deprecated_member_use
-              //           child: RaisedButton(
-              //             onPressed: () {},
-              //             textColor: Colors.black,
-              //             child: Text(text[index]),
-              //             color: _hasBeenPressed ? Colors.blue : Colors.white,
-              //           ),
-              //         );
-              //       },
-              //     ),
-              //   ],
-              // ),
               Container(
-                height: 40,
+                height: 50,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: text.length,
+                    itemCount: workType.length,
                     itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            currentButton = index;
-                          });
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          // ignore: deprecated_member_use
-                          child: RaisedButton(
-                            onPressed: () {
-                              setState(() {});
-                            },
-                            child: Text(text[index]),
-                            color: _hasBeenPressed ? Colors.blue : Colors.white,
-                          ),
+                      return Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: RaisedButton(
+                          onPressed: () {
+                            setState(() {
+                              _selectedButton = index;
+                            });
+                          },
+                          child: Text(workType[index]),
+                          color: _selectedButton == index
+                              ? Colors.blue
+                              : Colors.white,
+                          textColor: _selectedButton == index
+                              ? Colors.white
+                              : Colors.black,
                         ),
                       );
                     }),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.only(right: 15.0, left: 15.0),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //     children: <Widget>[
-              //       // ignore: deprecated_member_use
-              //       RaisedButton(
-              //         textColor: Colors.black,
-              //         child: Text("work"),
-              //         color: _hasBeenPressed ? Colors.blue : Colors.white,
-              //         onPressed: () {
-              //           setState(() {
-              //             _hasBeenPressed = !_hasBeenPressed;
-              //             _hasBeenPressed1 = false;
-              //             _hasBeenPressed2 = false;
-              //             _hasBeenPressed3 = false;
-              //           });
-              //         },
-              //       ),
-
-              //       // ignore: deprecated_member_use
-              //       RaisedButton(
-              //         textColor: Colors.black,
-              //         child: Text("off"),
-              //         color: _hasBeenPressed1 ? Colors.blue : Colors.white,
-              //         onPressed: () {
-              //           setState(() {
-              //             _hasBeenPressed1 = !_hasBeenPressed1;
-              //             _hasBeenPressed = false;
-              //             _hasBeenPressed2 = false;
-              //             _hasBeenPressed3 = false;
-              //           });
-              //         },
-              //       ),
-
-              //       // ignore: deprecated_member_use
-              //       RaisedButton(
-              //         textColor: Colors.black,
-              //         child: Text("vac"),
-              //         color: _hasBeenPressed2 ? Colors.blue : Colors.white,
-              //         onPressed: () {
-              //           setState(() {
-              //             _hasBeenPressed2 = !_hasBeenPressed2;
-              //             _hasBeenPressed = false;
-              //             _hasBeenPressed1 = false;
-              //             _hasBeenPressed3 = false;
-              //           });
-              //         },
-              //       ),
-
-              //       //ignore: deprecated_member_use
-              //       RaisedButton(
-              //         textColor: Colors.black,
-              //         child: Text("half"),
-              //         color: _hasBeenPressed3 ? Colors.blue : Colors.white,
-              //         onPressed: () {
-              //           setState(() {
-              //             _hasBeenPressed3 = !_hasBeenPressed3;
-              //             _hasBeenPressed = false;
-              //             _hasBeenPressed1 = false;
-              //             _hasBeenPressed2 = false;
-              //           });
-              //         },
-              //       ),
-              //     ],
-              //   ),
-              // ),
               Divider(
                 height: 30,
                 indent: 10,
@@ -326,7 +217,6 @@ class _EditDutyPageState extends State<EditDutyPage> {
                 ),
               ),
               Row(
-                // crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
@@ -339,8 +229,6 @@ class _EditDutyPageState extends State<EditDutyPage> {
 
                           decoration: InputDecoration(
                               labelText: "START TIME",
-
-                              // hintText: "Time",
                               border: InputBorder.none),
                           readOnly: true,
                           onTap: () async {

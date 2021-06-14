@@ -24,6 +24,7 @@ class _EditDutyPageState extends State<EditDutyPage> {
   TextEditingController timeinput = TextEditingController();
   TextEditingController timeinput2 = TextEditingController();
   int currentColor = 0;
+  int currentButton = 0;
   bool _hasBeenPressed = true;
   bool _hasBeenPressed1 = false;
   bool _hasBeenPressed2 = false;
@@ -41,6 +42,8 @@ class _EditDutyPageState extends State<EditDutyPage> {
     Colors.purple,
   ];
 
+  // ignore: deprecated_member_use
+  List<String> text = ["work", "off", "vacc", "half"];
   // get DateFormat => null;
 
   @override
@@ -179,73 +182,99 @@ class _EditDutyPageState extends State<EditDutyPage> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 15.0, left: 15.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    // ignore: deprecated_member_use
-                    RaisedButton(
-                      textColor: Colors.black,
-                      child: Text("work"),
-                      color: _hasBeenPressed ? Colors.blue : Colors.white,
-                      onPressed: () {
-                        setState(() {
-                          _hasBeenPressed = !_hasBeenPressed;
-                          _hasBeenPressed1 = false;
-                          _hasBeenPressed2 = false;
-                          _hasBeenPressed3 = false;
-                        });
-                      },
-                    ),
 
-                    // ignore: deprecated_member_use
-                    RaisedButton(
-                      textColor: Colors.black,
-                      child: Text("off"),
-                      color: _hasBeenPressed1 ? Colors.blue : Colors.white,
-                      onPressed: () {
-                        setState(() {
-                          _hasBeenPressed1 = !_hasBeenPressed1;
-                          _hasBeenPressed = false;
-                          _hasBeenPressed2 = false;
-                          _hasBeenPressed3 = false;
-                        });
-                      },
-                    ),
-
-                    // ignore: deprecated_member_use
-                    RaisedButton(
-                      textColor: Colors.black,
-                      child: Text("vac"),
-                      color: _hasBeenPressed2 ? Colors.blue : Colors.white,
-                      onPressed: () {
-                        setState(() {
-                          _hasBeenPressed2 = !_hasBeenPressed2;
-                          _hasBeenPressed = false;
-                          _hasBeenPressed1 = false;
-                          _hasBeenPressed3 = false;
-                        });
-                      },
-                    ),
-
-                    //ignore: deprecated_member_use
-                    RaisedButton(
-                      textColor: Colors.black,
-                      child: Text("half"),
-                      color: _hasBeenPressed3 ? Colors.blue : Colors.white,
-                      onPressed: () {
-                        setState(() {
-                          _hasBeenPressed3 = !_hasBeenPressed3;
-                          _hasBeenPressed = false;
-                          _hasBeenPressed1 = false;
-                          _hasBeenPressed2 = false;
-                        });
-                      },
-                    ),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  ListView.builder(
+                    itemCount: text.length,
+                    itemBuilder: (context, index) {
+                      // ignore: deprecated_member_use
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            currentButton = index;
+                          });
+                        },
+                        // ignore: deprecated_member_use
+                        child: RaisedButton(
+                          onPressed: () {},
+                          textColor: Colors.black,
+                          child: Text(text[index]),
+                          color: _hasBeenPressed ? Colors.blue : Colors.white,
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
+              // Padding(
+              //   padding: const EdgeInsets.only(right: 15.0, left: 15.0),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //     children: <Widget>[
+              //       // ignore: deprecated_member_use
+              //       RaisedButton(
+              //         textColor: Colors.black,
+              //         child: Text("work"),
+              //         color: _hasBeenPressed ? Colors.blue : Colors.white,
+              //         onPressed: () {
+              //           setState(() {
+              //             _hasBeenPressed = !_hasBeenPressed;
+              //             _hasBeenPressed1 = false;
+              //             _hasBeenPressed2 = false;
+              //             _hasBeenPressed3 = false;
+              //           });
+              //         },
+              //       ),
+
+              //       // ignore: deprecated_member_use
+              //       RaisedButton(
+              //         textColor: Colors.black,
+              //         child: Text("off"),
+              //         color: _hasBeenPressed1 ? Colors.blue : Colors.white,
+              //         onPressed: () {
+              //           setState(() {
+              //             _hasBeenPressed1 = !_hasBeenPressed1;
+              //             _hasBeenPressed = false;
+              //             _hasBeenPressed2 = false;
+              //             _hasBeenPressed3 = false;
+              //           });
+              //         },
+              //       ),
+
+              //       // ignore: deprecated_member_use
+              //       RaisedButton(
+              //         textColor: Colors.black,
+              //         child: Text("vac"),
+              //         color: _hasBeenPressed2 ? Colors.blue : Colors.white,
+              //         onPressed: () {
+              //           setState(() {
+              //             _hasBeenPressed2 = !_hasBeenPressed2;
+              //             _hasBeenPressed = false;
+              //             _hasBeenPressed1 = false;
+              //             _hasBeenPressed3 = false;
+              //           });
+              //         },
+              //       ),
+
+              //       //ignore: deprecated_member_use
+              //       RaisedButton(
+              //         textColor: Colors.black,
+              //         child: Text("half"),
+              //         color: _hasBeenPressed3 ? Colors.blue : Colors.white,
+              //         onPressed: () {
+              //           setState(() {
+              //             _hasBeenPressed3 = !_hasBeenPressed3;
+              //             _hasBeenPressed = false;
+              //             _hasBeenPressed1 = false;
+              //             _hasBeenPressed2 = false;
+              //           });
+              //         },
+              //       ),
+              //     ],
+              //   ),
+              // ),
               Divider(
                 height: 30,
                 indent: 10,

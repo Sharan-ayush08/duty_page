@@ -183,13 +183,36 @@ class _EditDutyPageState extends State<EditDutyPage> {
                 ),
               ),
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  ListView.builder(
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children: <Widget>[
+              //     ListView.builder(
+              //       itemCount: text.length,
+              //       itemBuilder: (context, index) {
+              //         // ignore: deprecated_member_use
+              //         return GestureDetector(
+              //           onTap: () {
+              //             setState(() {
+              //               currentButton = index;
+              //             });
+              //           },
+              //           // ignore: deprecated_member_use
+              //           child: RaisedButton(
+              //             onPressed: () {},
+              //             textColor: Colors.black,
+              //             child: Text(text[index]),
+              //             color: _hasBeenPressed ? Colors.blue : Colors.white,
+              //           ),
+              //         );
+              //       },
+              //     ),
+              //   ],
+              // ),
+              Container(
+                height: 40,
+                child: ListView.builder(
                     itemCount: text.length,
                     itemBuilder: (context, index) {
-                      // ignore: deprecated_member_use
                       return GestureDetector(
                         onTap: () {
                           setState(() {
@@ -199,14 +222,11 @@ class _EditDutyPageState extends State<EditDutyPage> {
                         // ignore: deprecated_member_use
                         child: RaisedButton(
                           onPressed: () {},
-                          textColor: Colors.black,
                           child: Text(text[index]),
                           color: _hasBeenPressed ? Colors.blue : Colors.white,
                         ),
                       );
-                    },
-                  ),
-                ],
+                    }),
               ),
               // Padding(
               //   padding: const EdgeInsets.only(right: 15.0, left: 15.0),

@@ -40,6 +40,7 @@ class _EditDutyPageState extends State<EditDutyPage> {
     Colors.red,
     Colors.brown,
     Colors.purple,
+    Colors.black
   ];
 
   // ignore: deprecated_member_use
@@ -211,6 +212,7 @@ class _EditDutyPageState extends State<EditDutyPage> {
               Container(
                 height: 40,
                 child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
                     itemCount: text.length,
                     itemBuilder: (context, index) {
                       return GestureDetector(
@@ -219,11 +221,16 @@ class _EditDutyPageState extends State<EditDutyPage> {
                             currentButton = index;
                           });
                         },
-                        // ignore: deprecated_member_use
-                        child: RaisedButton(
-                          onPressed: () {},
-                          child: Text(text[index]),
-                          color: _hasBeenPressed ? Colors.blue : Colors.white,
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          // ignore: deprecated_member_use
+                          child: RaisedButton(
+                            onPressed: () {
+                              setState(() {});
+                            },
+                            child: Text(text[index]),
+                            color: _hasBeenPressed ? Colors.blue : Colors.white,
+                          ),
                         ),
                       );
                     }),
